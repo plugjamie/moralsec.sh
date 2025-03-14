@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +16,14 @@
             flex-direction: column;
         }
         h1 {
-            color: red;
-            font-size: 48px;
+            color: rgba(255, 0, 0, 0.5);
+            font-size: 100px;
             text-align: center;
-            animation: flicker 1s infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: flicker 5s infinite;
         }
         .box {
             background-color: rgba(0, 0, 0, 0.7);
@@ -83,7 +87,6 @@
     </style>
 </head>
 <body>
-    <h1>MORALSEC</h1>
     <div class="box" onclick="showBio('Skid Larp:  founder and owner of moralsec')">Skid Larp ..  Achievement</div>
     <div class="box" onclick="showBio('PlugJamie:  founder and owner of moralsec')">PlugJamie .. Benevolence</div>
     <div class="box" onclick="showBio('Mr Coffin:  asked to be on site')">Mr Coffin .. Undecided</div>
@@ -95,7 +98,7 @@
     </div>
 
     <audio autoplay loop>
-        <source src="https://sharevault.cloud/ZJ43LE" type="audio/mpeg">
+        <source src="https://cdn.discordapp.com/attachments/1185334538881212446/1302470031753613392/idle_Trick_or_Treat_1.mp3?ex=67d4efbe&is=67d39e3e&hm=dbe0e9f4e0b51c8cc45ab4fa7a6e3e4d8cbe31bb6b47462dcc2ea3ba0c33dfd7&.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
