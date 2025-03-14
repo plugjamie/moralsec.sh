@@ -37,6 +37,7 @@
             animation: glow 1.5s infinite alternate;
             filter: blur(5px);
             transition: filter 0.3s;
+            cursor: pointer;
         }
         .box:hover {
             filter: blur(0);
@@ -61,16 +62,46 @@
             80% { opacity: 1; }
             90% { opacity: 0; }
             100% { opacity: 1; }
-            100% { opacity: 1; }
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+        .overlay.active {
+            display: flex;
         }
     </style>
 </head>
 <body>
     <h1>MORALSEC</h1>
-    <div class="box">Skid Larp ..  Achivement</div>
-    <div class="box">PlugJamie .. Benevolence</div>
-    <div class="box">Mr Coffin .. Undecided</div>
-    <div class="box">SilenceHoe   ..   Respect</div>
+    <div class="box" onclick="showBio('Skid Larp:  founder and owner of moralsec')">Skid Larp ..  Achievement</div>
+    <div class="box" onclick="showBio('PlugJamie:  founder and owner of moralsec')">PlugJamie .. Benevolence</div>
+    <div class="box" onclick="showBio('Mr Coffin:  asked to be on site')">Mr Coffin .. Undecided</div>
+    <div class="box" onclick="showBio('SilenceHoe: asked to be on site')">SilenceHoe   ..   Respect</div>
+
+    <div class="overlay" id="bioOverlay">
+        <div id="bioContent"></div>
+        <button class="box" onclick="closeBio()">close bio</button>
+    </div>
+
+    <script>
+        function showBio(bio) {
+            document.getElementById('bioContent').innerText = bio;
+            document.getElementById('bioOverlay').classList.add('active');
+        }
+        function closeBio() {
+            document.getElementById('bioOverlay').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
- 
