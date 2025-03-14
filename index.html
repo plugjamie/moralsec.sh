@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowing Boxes</title>
     <style>
         body {
+            background-image: url('https://bloody-disgusting.com/wp-content/uploads/2015/12/tv.gif');
             background-color: black;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            color: red;
+            font-size: 48px;
+            text-align: center;
+            animation: flicker 1s infinite;
         }
         .box {
+            background-color: rgba(0, 0, 0, 0.7);
             width: 200px;
             height: 100px;
             margin: 20px;
@@ -26,6 +35,11 @@
             border-radius: 10px;
             box-shadow: 0 0 20px red;
             animation: glow 1.5s infinite alternate;
+            filter: blur(5px);
+            transition: filter 0.3s;
+        }
+        .box:hover {
+            filter: blur(0);
         }
         @keyframes glow {
             0% {
@@ -35,10 +49,28 @@
                 box-shadow: 0 0 40px red;
             }
         }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            10% { opacity: 0; }
+            20% { opacity: 1; }
+            30% { opacity: 0; }
+            40% { opacity: 1; }
+            50% { opacity: 0; }
+            60% { opacity: 1; }
+            70% { opacity: 0; }
+            80% { opacity: 1; }
+            90% { opacity: 0; }
+            100% { opacity: 1; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
-    <div class="box">skid larp</div>
-    <div class="box">plugjamie</div>
+    <h1>MORALSEC</h1>
+    <div class="box">Skid Larp ..  Achivement</div>
+    <div class="box">PlugJamie .. Benevolence</div>
+    <div class="box">Mr Coffin .. Undecided</div>
+    <div class="box">SilenceHoe   ..   Respect</div>
 </body>
 </html>
+
