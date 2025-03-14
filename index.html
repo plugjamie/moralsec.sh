@@ -5,14 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
+            background-image: url('https://bloody-disgusting.com/wp-content/uploads/2015/12/tv.gif');
             background-color: black;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            color: red;
+            font-size: 48px;
+            text-align: center;
+            animation: blink 1s infinite;
         }
         .box {
+            background-color: rgba(0, 0, 0, 0.7);
             width: 200px;
             height: 100px;
             margin: 20px;
@@ -34,9 +44,21 @@
                 box-shadow: 0 0 40px red;
             }
         }
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
+    <h1>MORALSEC</h1>
     <div class="box">Skid Larp</div>
     <div class="box">Plugjamie</div>
     <div class="box">Mr Coffin / Mr Actavis</div>
