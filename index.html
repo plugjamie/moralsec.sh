@@ -139,18 +139,16 @@
             animation: glow 1.5s infinite alternate;
         }
 
-        /* Main content area */
         .main-content {
             display: flex;
-            flex-wrap: wrap; /* Allow the boxes to wrap when needed */
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px; /* Adds space between the boxes */
+            gap: 20px;
         }
 
-        /* Media query for small screen size */
         @media (max-width: 800px) {
             .main-content {
-                flex-direction: column; /* Stack boxes vertically on small screens */
+                flex-direction: column;
             }
         }
 
@@ -163,7 +161,7 @@
         <button class="enter-button" onclick="enterPage()">Enter</button>
     </div>
 
-    <!-- Main Content (Visible after entering password) -->
+    <!-- Main Content -->
     <div class="main-content" id="mainContent" style="display: none;">
         <div class="box" onclick="showBio('Skid Larp:  Founder and owner of moralsec')">Skid Larp ..  Achievement</div>
         <div class="box" onclick="showBio('PlugJamie:  Femboy hacker;3')">PlugJamie .. Benevolence</div>
@@ -172,18 +170,20 @@
         <div class="box" onclick="showBio('Michael:    https://x.com/v3dbs')">Michael:3 ..   Security</div>
     </div>
 
-    <div class="overlay" id="bioOverlay">
+    <!-- Bio Overlay -->
+    <div class="overlay" id="bioOverlay" onclick="closeBio(event)">
         <div id="bioContent"></div>
-        <button class="box" onclick="closeBio()">close bio</button>
     </div>
 
-        <div class="hoa-overlay" id="hoaOverlay">
+    <!-- HOA Overlay -->
+    <div class="hoa-overlay" id="hoaOverlay">
         <div>
             <button class="hoa-button" onclick="showTerry()">Terry</button>
             <button class="hoa-button" onclick="closeHoa()">Close</button>
         </div>
     </div>
 
+    <!-- Terry Overlay -->
     <div class="overlay" id="terryOverlay">
         <div class="terry-content" id="terryContent"></div>
         <button class="box" onclick="closeTerry()">close</button>
@@ -200,8 +200,6 @@
             audio.play();
 
             document.getElementById('enterPage').classList.remove('active');
-
-
             document.getElementById('mainContent').style.display = 'flex';
         }
 
@@ -209,9 +207,14 @@
             document.getElementById('bioContent').innerText = bio;
             document.getElementById('bioOverlay').classList.add('active');
         }
-        function closeBio() {
-            document.getElementById('bioOverlay').classList.remove('active');
+
+        function closeBio(event) {
+            // Close the bio overlay if clicked outside the bio content
+            if (event.target === document.getElementById('bioOverlay')) {
+                document.getElementById('bioOverlay').classList.remove('active');
+            }
         }
+
         function toggleAudio() {
             const audio = document.getElementById('audioPlayer');
             if (audio.paused) {
@@ -220,9 +223,11 @@
                 audio.pause();
             }
         }
+
         function toggleHoa() {
             document.getElementById('hoaOverlay').classList.toggle('active');
         }
+
         function showTerry() {
             const terryInfo = `
                 <h2>Terry Burgess</h2>
@@ -276,12 +281,15 @@
             document.getElementById('terryOverlay').classList.add('active');
             closeHoa();
         }
+
         function closeTerry() {
             document.getElementById('terryOverlay').classList.remove('active');
         }
+
         function closeHoa() {
             document.getElementById('hoaOverlay').classList.remove('active');
         }
     </script>
 </body>
 </html>
+
