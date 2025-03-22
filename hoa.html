@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background: url('https://c.tenor.com/Pm4S40MGsIQAAAAC/hacker-hackerman.gif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            color: white;
+            font-family: monospace;
+            font-size: 16px;
+            overflow: hidden;
+        }
+        .banner {
+            text-align: center;
+            white-space: pre;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .pussyweed-button, .killergang-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .pussyweed-button:hover, .killergang-button:hover {
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <button class="pussyweed-button" onclick="showOverlay(); playAudio()">Pussyweed</button>
+    <button class="killergang-button" onclick="showKillergangOverlay(); playAudio()">Killergang</button>
+    <div class="navigation">
+        <a href="index.html" style="color: white; text-decoration: none; position: absolute; top: 10px; left: 10px;">Back to Main Page</a>
+    </div>
+    <div class="overlay" id="overlay">
+        <div>
+            <h2>Pussyweed</h2>
+            <p>Former KG leader, a group that claims their "AE" but got exposed for faking it. Pussyweed talked shi on an old group of mine and got his shi ran, then begged to revoke the EDR on his Snap, so let him be a lesson.</p>
+            <img src="https://media.discordapp.net/attachments/1348686630621417533/1351972992665780318/Screenshot_2025-03-15_225148.png?ex=67dc5277&is=67db00f7&hm=8a040b64a68fd6bca96445448cbca63c07ca1b18aeabe0b13beee51e1ca432be&=&format=webp&quality=lossless" alt="Pussyweed Image">
+        </div>
+        <button onclick="hideOverlay()" style="margin-top: 20px; padding: 10px 20px; background-color: red; color: white; border: none; cursor: pointer;">Close</button>
+    </div>
+    <div class="overlay" id="killergangOverlay">
+        <div>
+            <h2>Killergang</h2>
+            <p>KG, the corny group that tried doxxing me and my group then got absolutely ran out of com. All their members switched; we had over 10 insiders in the group when the owner found out he left com and felt betrayed. Also, he has been exposed for being fake "AE" and selling cutsigns from a 15-year-old girl.</p>
+            <img src="https://media.discordapp.net/attachments/1350645576089206907/1350686118735118409/20250314_233314.gif?ex=67dc4139&is=67daefb9&hm=bdff51042b1ad45739c277e5a1828729fcd9c48e3e9661ef4a99b85dad083409&=" alt="Killergang Image">
+        </div>
+        <button onclick="hideKillergangOverlay()" style="margin-top: 20px; padding: 10px 20px; background-color: red; color: white; border: none; cursor: pointer;">Close</button>
+    </div>
+    <audio id="audio" src="https://cdn.discordapp.com/attachments/1350892797317611593/1352124195047342133/Hanako_-_I_hate_Hanako_2025-03-19_21_16.m4a?ex=67dcdf49&is=67db8dc9&hm=5bdc893c48bbd6de68a9e6b875899329b06d0f84772e6dce0607d571c4a4d6e2&"></audio>
+    <script>
+        function showOverlay() {
+            document.getElementById('overlay').style.display = 'flex';
+        }
+        function hideOverlay() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+        function showKillergangOverlay() {
+            document.getElementById('killergangOverlay').style.display = 'flex';
+        }
+        function hideKillergangOverlay() {
+            document.getElementById('killergangOverlay').style.display = 'none';
+        }
+        function playAudio() {
+            document.getElementById('audio').play();
+        }
+    </script>
+</body>
+</html>
