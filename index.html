@@ -3,287 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pursue</title>
     <style>
         body {
-            background-image: url('https://bloody-disgusting.com/wp-content/uploads/2015/12/tv.gif');
-            background-color: black;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            flex-direction: column;
+            background: black;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            color: white;
+            font-family: monospace;
+            font-size: 16px;
+            overflow: hidden;
+            cursor: pointer;
         }
-        h1 {
-            color: rgba(255, 0, 0, 0.5);
-            font-size: 100px;
-            text-align: center;
+        .banner {
+            text-align: absolute;
+            white-space: pre;
+        }
+
+        .profile {
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: flicker 5s infinite;
-        }
-        .box {
-            background-color: rgba(0, 0, 0, 0.7);
-            width: 200px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            color: black;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            color: white;
-            font-size: 24px;
-            text-align: center;
+            justify-content: center;
+            font-size: 18px;
             border-radius: 10px;
-            box-shadow: 0 0 20px red;
-            animation: glow 1.5s infinite alternate;
-            filter: blur(5px);
-            transition: filter 0.3s;
-            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            text-align: center;
         }
-        .box:hover {
-            filter: blur(0);
+
+        .profile:hover {
+            transform: translateY(-20px);
         }
-        @keyframes glow {
+
+        .profile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        /* Swinging effect */
+        @keyframes swing {
             0% {
-                box-shadow: 0 0 20px red;
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(15deg);
+            }
+            50% {
+                transform: rotate(0deg);
+            }
+            75% {
+                transform: rotate(-15deg);
             }
             100% {
-                box-shadow: 0 0 40px red;
+                transform: rotate(0deg);
             }
         }
-        @keyframes flicker {
-            0% { opacity: 1; }
-            10% { opacity: 0; }
-            20% { opacity: 1; }
-            30% { opacity: 0; }
-            40% { opacity: 1; }
-            50% { opacity: 0; }
-            60% { opacity: 1; } 
-            70% { opacity: 0; }
-            80% { opacity: 1; }
-            90% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 24px;
-            text-align: center;
-        }
-        .overlay.active {
-            display: flex;
-        }
-        .enter-button {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: red;
-            font-size: 24px;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .profile1 { left: 15%; }
+        .profile2 { left: 35%; }
+        .profile3 { left: 55%; }
+        .profile4 { left: 75%; }
+        .profile5 { left: 15%; top: 70%; }
+        .profile6 { left: 35%; top: 70%; }
+        .profile7 { left: 55%; top: 70%; }
+        .profile8 { left: 70%; top: 70%; }
+        .profile9 { left: 55%; top: 70%; }
+        .profile10 { left: 75%; top: 70%; }
+
+        .navigate-button {
             position: absolute;
-            top: 40%;
-            left: 50%;
+            top: 65%;
+            left: 49%;
             transform: translateX(-50%);
-            filter: blur(5px);
-            transition: filter 0.3s;
-        }
-        .enter-button:hover {
-            filter: blur(0);
-        }
-        .hoa-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 24px;
-            text-align: center;
-        }
-        .hoa-overlay.active {
-            display: flex;
-        }
-        .hoa-button {
-            margin: 10px;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-        .terry-content {
-            background-image: url('https://images.steamusercontent.com/ugc/918038307429174191/4BD33589F0F829910AE73F02359E86D707A2C3AC/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false');
-            background-size: cover;
-            color: red;
-            padding: 20px;
-            max-height: 80vh;
-            overflow-y: scroll;
-            border-radius: 10px;
-            box-shadow: 0 0 20px red;
-            animation: glow 1.5s infinite alternate;
+            font-size: 16px;
         }
 
-        .main-content {
+        .navigate-button:hover {
+            background-color: gray;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
         }
 
-        @media (max-width: 800px) {
-            .main-content {
-                flex-direction: column;
-            }
+        .audio {
+            display: none;
         }
-
     </style>
 </head>
-<body>
-
-    <div id="enterPage" class="overlay active">
-        <button class="enter-button" onclick="enterPage()">Enter</button>
+<body onclick="playAudio()">
+    <div class="overlay" id="enterOverlay">
+        <p style="color: white; font-size: 30px;">enter...</p>
+    </div>
+    
+    <div class="banner">
+        ppppp   ppppppppp   uuuuuu    uuuuuu rrrrr   rrrrrrrrr       ssssssssss   uuuuuu    uuuuuu      eeeeeeeeeeee    
+        p::::ppp:::::::::p  u::::u    u::::u r::::rrr:::::::::r    ss::::::::::s  u::::u    u::::u    ee::::::::::::ee  
+        p:::::::::::::::::p u::::u    u::::u r:::::::::::::::::r ss:::::::::::::s u::::u    u::::u   e::::::eeeee:::::ee
+        pp::::::ppppp::::::pu::::u    u::::u rr::::::rrrrr::::::rs::::::ssss:::::su::::u    u::::u  e::::::e     e:::::e
+         p:::::p     p:::::pu::::u    u::::u  r:::::r     r:::::r s:::::s  ssssss u::::u    u::::u  e:::::::eeeee::::::e
+         p:::::p     p:::::pu::::u    u::::u  r:::::r     rrrrrrr   s::::::s      u::::u    u::::u  e:::::::::::::::::e 
+         p:::::p     p:::::pu::::u    u::::u  r:::::r                  s::::::s   u::::u    u::::u  e::::::eeeeeeeeeee  
+         p:::::p    p::::::pu:::::uuuu:::::u  r:::::r            ssssss   s:::::s u:::::uuuu:::::u  e:::::::e           
+         p:::::ppppp:::::::pu:::::::::::::::uur:::::r            s:::::ssss::::::su:::::::::::::::uue::::::::e          
+         p::::::::::::::::p  u:::::::::::::::ur:::::r            s::::::::::::::s  u:::::::::::::::u e::::::::eeeeeeee  
+         p::::::::::::::pp    uu::::::::uu:::ur:::::r             s:::::::::::ss    uu::::::::uu:::u  ee:::::::::::::e  
+         p::::::pppppppp        uuuuuuuu  uuuurrrrrrr              sssssssssss        uuuuuuuu  uuuu    eeeeeeeeeeeeee  
+         p:::::p                                                                                                        
+         p:::::p                                                                                                        
+        p:::::::p                                                                                                       
+        p:::::::p                                                                                                       
+        p:::::::p                                                                                                       
+        pppppppppp                                                                                                       
+    </div>
+    
+    <div class="profile profile1">
+        <img src="https://media.discordapp.net/attachments/1352046968192368701/1352050918627213414/Screenshot_2025-02-14_185829.png?ex=67de954a&is=67dd43ca&hm=3adbc5915224833e27f7d76eb4c6f71a189e47690d182b4456ebc738abefe6ba&=&format=webp&quality=lossless" alt="Profile 1"> 
+        Plug
+    </div>
+    <div class="profile profile2">
+        <img src="https://media.discordapp.net/attachments/1352046968192368701/1352050917997805588/Screenshot_2025-03-08_144146.png?ex=67de954a&is=67dd43ca&hm=b76382a8ba08ef72bddd51e3087390e2bc06c38e069798e49ec70626be00b29d&=&format=webp&quality=lossless" alt="Profile 2">
+        Crucifiedv1
+    </div>
+    <div class="profile profile3">
+        <img src="https://media.discordapp.net/attachments/1352046968192368701/1352050908917137509/Screenshot_2025-03-15_144623.png?ex=67de9548&is=67dd43c8&hm=6897e7330a6eb3a0d9d544cc64f4923e3a426574c353dcc49df7ddd381d355f3&=&format=webp&quality=lossless" alt="Profile 3">
+        Slynnster
+    </div>
+    <div class="profile profile4">
+        <img src="https://media.discordapp.net/attachments/1352046968192368701/1352050917687558217/Screenshot_2025-03-11_171159.png?ex=67de954a&is=67dd43ca&hm=488b53656b4e1507008a64a1ed8c5b9873bc6d50f10ad6efba792095736fb735&=&format=webp&quality=lossless" alt="Profile 4">
+        Narco
     </div>
 
-    <div class="main-content" id="mainContent" style="display: none;">
-        <div class="box" onclick="showBio('Skid Larp:  Founder and owner of moralsec')">Skid Larp ..  Achievement</div>
-        <div class="box" onclick="showBio('PlugJamie:  Femboy hacker;3')">PlugJamie .. Benevolence</div>
-        <div class="box" onclick="showBio('SilenceHoe: Just here fr')">SilenceHoe   ..   Respect</div>
-        <div class="box" onclick="showBio('Cxmpzy:     Skidded my shi fr')">Cxmpzy ..   Friendship</div>
-        <div class="box" onclick="showBio('Michael:    https://x.com/v3dbs')">Michael:3 ..   Security</div>
-        <div class="box" onclick="showBio('Fentanyl:     I love fentanyl')">Fentanyl ..   Power</div>
+    <div class="profile profile5">
+        <img src="https://media.discordapp.net/attachments/1352046968192368701/1352050908279865474/Screenshot_2025-03-19_111740.png?ex=67de9548&is=67dd43c8&hm=8b84c6b02105cff48b5bac476fd2492548e1b24d1b0a117a01a9f008c746a973&=&format=webp&quality=lossless&width=732&height=735" alt="Profile 5">
+        kl
+    </div>
+    <div class="profile profile6">
+        <img src="https://media.discordapp.net/attachments/1352046968192368701/1352050908636123166/Screenshot_2025-03-17_141855.png?ex=67de9548&is=67dd43c8&hm=fdecf3fa7fbb156ab6c2e02cfadad6e7327a8dc6ed5ee6242bd444f191386b45&=&format=webp&quality=lossless&width=616&height=735" alt="Profile 6">
+        0x12
     </div>
 
-    <div class="overlay" id="bioOverlay" onclick="closeBio(event)">
-        <div id="bioContent"></div>
+    <div class="profile profile9">
+        <img src="https://media.discordapp.net/attachments/1348686630621417533/1352101549781946429/Screenshot_2025-02-14_212931.png?ex=67dec472&is=67dd72f2&hm=f831e7817b48cd604cc6ecdf087c8f85a6ea44fa0c55d5158a86d8a7b2950607&=&format=webp&quality=lossless" alt="Profile 9">
+        Hanako
     </div>
 
-    <div class="hoa-overlay" id="hoaOverlay">
-        <div>
-            <button class="hoa-button" onclick="showTerry()">Terry</button>
-            <button class="hoa-button" onclick="closeHoa()">Close</button>
-        </div>
+    <div class="profile profile10">
+        <img src="https://media.discordapp.net/attachments/1348686630621417533/1352104228402757682/Screenshot_2025-03-01_175327.png?ex=67dec6f0&is=67dd7570&hm=3285388db6b326d5c075af286aa1d95a034619194d487bc65608ab6d9769a8df&=&format=webp&quality=lossless" alt="Profile 10">
+        Nosleep
     </div>
 
-    <div class="overlay" id="terryOverlay">
-        <div class="terry-content" id="terryContent"></div>
-        <button class="box" onclick="closeTerry()">close</button>
-    </div>
+    <button class="navigate-button" onclick="window.location.href='hoa.html'">HOA</button>
 
-    <audio id="audioPlayer" loop>
-        <source src="https://cdn.discordapp.com/attachments/1185334538881212446/1310402275939975250/decal_fav_idle.mp3?ex=67d76d38&is=67d61bb8&hm=03ab8348777924d795ce8082303ad0cd654797806c4c9b617bce44fa9234f2ef&.mp3" type="audio/mp3">
+    <audio id="audio" class="audio">
+        <source src="https://cdn.discordapp.com/attachments/1185334538881212446/1352129613685588088/My_first_idle_audio_ig.mp3?ex=67dede95&is=67dd8d15&hm=d9cc68ad520e93f34d331e001f8224d5cb50e467f69c555b3b18597ded1d616c&" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        function enterPage() {
-            const audio = document.getElementById('audioPlayer');
+        function playAudio() {
+            var audio = document.getElementById("audio");
             audio.play();
-
-            document.getElementById('enterPage').classList.remove('active');
-            document.getElementById('mainContent').style.display = 'flex';
-        }
-
-        function showBio(bio) {
-            document.getElementById('bioContent').innerText = bio;
-            document.getElementById('bioOverlay').classList.add('active');
-        }
-
-        function closeBio(event) {
-            if (event.target === document.getElementById('bioOverlay')) {
-                document.getElementById('bioOverlay').classList.remove('active');
-            }
-        }
-
-        function toggleAudio() {
-            const audio = document.getElementById('audioPlayer');
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
-        }
-
-        function toggleHoa() {
-            document.getElementById('hoaOverlay').classList.toggle('active');
-        }
-
-        function showTerry() {
-            const terryInfo = `
-                <h2>Terry Burgess</h2>
-                <p><strong>Age:</strong> 43</p>
-                <p><strong>Known As:</strong> Terry L Burgessii Jr., Terry Lee Burgess, Terry Lymon Burgess, Terry X Burgess, Terry Xx Burgess</p>
-                <h3>Family:</h3>
-                <p>Sandra E Burgess, 75 - Married</p>
-                <p>Patricia H Burgess, 72 - Single</p>
-                <p>Regina M Burgess, 46</p>
-                <p>Wilhelmina M Burgess, 40 - Single</p>
-                <h3>Current Address:</h3>
-                <p>123 Trinity Lee Ln, Lexington, SC</p>
-                <h3>Interior Features:</h3>
-                <p>Bedrooms: 3, Bathrooms: 2, Square Footage: 1,216 Sq. Ft.</p>
-                <h3>Construction:</h3>
-                <p>Year Built: 1998, Property Type: Rural Residence</p>
-                <h3>Lot Details:</h3>
-                <p>Lot Size: 213,444 Sq. Ft., Property Use Type: Residential</p>
-                <h3>Past Addresses:</h3>
-                <p>229 Sharon Church Rd</p>
-                <p>150 Shortcut Rd</p>
-                <p>149 Josh Rd</p>
-                <p>3965 Plumbranch Ave</p>
-                <p>308 Beverly Dr</p>
-                <p>135 Trinity Lee Ln</p>
-                <p>108 Josh Ct</p>
-                <h3>Phone Numbers:</h3>
-                <p>(803) 394-3830</p>
-                <p>(803) 351-8571</p>
-                <p>(803) 351-1857</p>
-                <p>(803) 727-6082</p>
-                <p>(803) 807-0285</p>
-                <p>(803) 583-4120</p>
-                <p>(803) 755-0164</p>
-                <p>(803) 351-5185</p>
-                <p>(803) 894-8782</p>
-                <h3>Email Addresses:</h3>
-                <p>maxbigboston@aol.com</p>
-                <p>midnightstallion69@yahoo.com</p>
-                <p>burgter@aol.com</p>
-                <p>noahjo_1697@hotmail.com</p>
-                <p>tburgess99@yahoo.com</p>
-                <p>patricia.burgess@comcast.net</p>
-                <p>terry.burgess@juno.com</p>
-                <p>burgter2950@gmail.com</p>
-                <p>sexybrowneyes44d@hotmail.com</p>
-                <h3>Socials:</h3>
-                <p><a href="https://www.linkedin.com/in/terry-burgess-a61ab443" target="_blank">LinkedIn Profile</a></p>
-            `;
-            document.getElementById('terryContent').innerHTML = terryInfo;
-            document.getElementById('terryOverlay').classList.add('active');
-            closeHoa();
-        }
-
-        function closeTerry() {
-            document.getElementById('terryOverlay').classList.remove('active');
-        }
-
-        function closeHoa() {
-            document.getElementById('hoaOverlay').classList.remove('active');
+            
+            var overlay = document.getElementById("enterOverlay");
+            overlay.style.display = "none";
         }
     </script>
 </body>
-</html>
+</html> 
